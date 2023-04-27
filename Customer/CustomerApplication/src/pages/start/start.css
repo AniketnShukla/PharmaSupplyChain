@@ -1,0 +1,14 @@
+.startTitle {
+  margin-top: 0px;
+  margin-left: 800px;
+
+  font-size: xx-large;
+  color: rgb(22, 77, 77);
+}
+
+.startButton {
+  margin: 0px;
+}
+.navButton {
+  background-color: black;
+}
