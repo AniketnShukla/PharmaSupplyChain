@@ -8,6 +8,7 @@ import { ShopContextProvider } from "./context/shop-context";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import MyOrders from "./pages/myorders/MyOrders";
+import TraceOrder from "./pages/traceorder/TraceOrder";
 
 function App() {
   let loggedIn;
@@ -27,6 +28,7 @@ function App() {
             <Route path="/shop" element={ loggedIn ? (<Shop />) : ( <Navigate replace to ={"/"} />)} />
             <Route path="/cart" element={ loggedIn ? (<Cart />) : ( <Navigate replace to ={"/"} />)} />
             <Route path="/myorders" element={ loggedIn ? (<MyOrders />) : ( <Navigate replace to ={"/"} />)} />
+            <Route path="/traceorder/:medicineAddress" element={ loggedIn ? (<TraceOrder />) : ( <Navigate replace to ={"/"} />)} />
             {/* <Route path="/checkout" element={ loggedIn ? (<Checkout />) : ( <Navigate replace to ={"/"} />)} /> */}
             {/* <Route path="/Cart" element={<Checkout />} /> */}
           </Routes>

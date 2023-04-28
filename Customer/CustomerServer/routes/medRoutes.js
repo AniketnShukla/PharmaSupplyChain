@@ -8,5 +8,7 @@ router.route('/')
 // .patch(usersController.updateUser)
 // .delete(usersController.deleteUser)
 
+router.route('/get-med-info')
+.post(medsController.getMedInfo)
 
 module.exports = router

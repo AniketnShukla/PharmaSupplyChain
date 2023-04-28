@@ -139,35 +139,6 @@ const placeOrder = asyncHandler(async(req, res) => {
     res.json({status: 'ok', message: `${updatedUser.username} updated`})
 })
 
-//@desc Create new users
-//@route POST /users
-//@access Private
-// const createNewUser = asyncHandler(async(req, res) => {
-//     const {username, password } = req.body
-    
-//     //COnfirm data
-//     if(!username || !password ){
-//         return res.status(400).json({message: 'All fields are required'})
-//     }
-//     //Check for duplicates
-//     const duplicate = await User.findOne({username}).lean().exec()
-//     if(duplicate){
-//         return res.status(400).json({message: 'Duplicate username'})
-//     }
-
-//     const hashedPwd = await bcrypt.hash(password, 10) //salt rounds
-//     const userObject = {username, "password": hashedPwd, roles}
-
-//     //Create and store new user
-//     const user = await User.create(userObject)
-//     if(user){  //create
-//         res.status(201).json({message: `New user ${username} created`})  
-//     }else{
-//         res.status(400).json({message: `Invalid user data received`})  
-//     }
-// })
-
-
 // @desc Update a users
 // @route PATCH /users
 // @access Private
@@ -193,35 +164,6 @@ const loginUser = asyncHandler(async(req, res) => {
     else{
         return res.json({status: 'error', user: false})
     }
-
-
-    //COnfirm data
-    // if(!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean'){
-    //     res.status(400).json({message: `All fields are required`})  
-    // }
-    
-    // const user = await User.findById(id).exec()
-    
-    // if(!user) {
-    //     return res.status(400).json({message: `User not found`})
-    // }
-    // //Check for duplicate 
-    // const duplicate = await User.findOne({XMLDocument}).lean().exec()
-    // //Allow updates to the original user
-    // if(duplicate && duplicate?._id.toString() !== id) {
-    //     res.status(401).json({message: `Duplicate username`})  
-    // }
-    // user.username = username
-    // user.roles = roles
-    // user.active = active
-    // if(password){
-    //     //Hash password
-    //     user.pasword = await bcrypt.hash(password, 10) //salt rounds
-    // }
-
-    // const updatedUser = await user.save()
-
-    // res.json({message: `${updatedUser.username} updated`})
 })
 
 //@desc Deleta a users

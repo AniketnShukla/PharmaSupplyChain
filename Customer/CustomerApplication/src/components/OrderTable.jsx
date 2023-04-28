@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import TraceOrder from '../pages/traceorder/TraceOrder';
+import { Link } from 'react-router-dom';
 
 function OrderTable(props) {
+  let id;
   const [isLoading, setIsLoading] = useState(true);
   const [state, setState] = useState();
 
@@ -20,7 +23,7 @@ function OrderTable(props) {
         // console.log(typeof obj[item] + ' ' + obj[item])
         // if(typeof obj[item] != 'object'){
           // if(['timeAdded', 'description', 'price', 'quantity'].find((x)=> x === item)){
-          if(['timeAdded', 'description', 'price'].find((x)=> x === item)){
+          if(['timeAdded', 'description', 'price', 'medicineAddress'].find((x)=> x === item)){
           console.log(item)
           tableObj[item] = obj[item]
         }
@@ -54,6 +57,7 @@ function OrderTable(props) {
       <th>Quantity</th>
       </tr> */}
       <tr>
+        <th scope="col">Medicine Address</th>
         <th scope="col">Medicine Name</th>
         <th scope="col">Price</th>
         {/* <th scope="col">Quantity</th> */}
@@ -63,13 +67,22 @@ function OrderTable(props) {
      </thead>
      <tbody>
 
-    {state?.map((item) => (
+    {
+    state?.map((item) => (
       <tr key={item._id}>
         {Object.values(item)?.map((val) => (
           <td>{val}</td>
-        ))}
+          ))}
+        <td>
+          <Link to={`/traceorder/${item.medicineAddress}`}>
+            <button onClick = { () => {
+              console.log(item)
+            }
+          }>Trace</button>
+          {item._id}
+          </Link>
+          </td>
       </tr> 
-        // <button>Trace</button>
     ))}  
     </tbody>
     </table>
