@@ -18,5 +18,5 @@ router.route('/login')
 .post(customerController.loginUser)
 
 router.route('/buy')
-    .post(customerController.placeOrder)
+.post(customerController.placeOrder)
 module.exports = router

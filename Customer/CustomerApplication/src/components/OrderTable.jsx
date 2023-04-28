@@ -14,12 +14,13 @@ function OrderTable(props) {
   useEffect(() => {
     console.log(props.data)
     let tableDataArray = []
-    props.data.map((obj) => {
+    props.data?.map((obj) => {
       const tableObj = {}
       for(let item in obj){
         // console.log(typeof obj[item] + ' ' + obj[item])
         // if(typeof obj[item] != 'object'){
-        if(['timeAdded', 'description', 'price', 'quantity'].find((x)=> x === item)){
+          // if(['timeAdded', 'description', 'price', 'quantity'].find((x)=> x === item)){
+          if(['timeAdded', 'description', 'price'].find((x)=> x === item)){
           console.log(item)
           tableObj[item] = obj[item]
         }
@@ -38,7 +39,7 @@ function OrderTable(props) {
     <>
     { 
     isLoading ?  (
-      <h2>Loading...</h2>
+      <h2>No Orders</h2>
     ) : 
     (
     <table class="table">
@@ -53,18 +54,18 @@ function OrderTable(props) {
       <th>Quantity</th>
       </tr> */}
       <tr>
-        <th scope="col">Date of Order</th>
         <th scope="col">Medicine Name</th>
-        <th scope="col">Quantity</th>
         <th scope="col">Price</th>
+        {/* <th scope="col">Quantity</th> */}
+        <th scope="col">Date of Order</th>
         <th scope="col">Click to Trace</th>
       </tr>
      </thead>
      <tbody>
 
-    {state.map((item) => (
+    {state?.map((item) => (
       <tr key={item._id}>
-        {Object.values(item).map((val) => (
+        {Object.values(item)?.map((val) => (
           <td>{val}</td>
         ))}
       </tr> 

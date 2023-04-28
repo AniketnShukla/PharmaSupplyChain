@@ -54,7 +54,8 @@ const MyOrders = () => {
     <h2>MyOrders</h2>
     { 
     isLoading ?  (
-    <h2>Loading . . . .</h2>
+    // <h2>Loading . . . </h2>
+    <h2>No Orders yet.</h2>
     ) : (    
     <OrderTable data={medicineInfo} />
     )}
