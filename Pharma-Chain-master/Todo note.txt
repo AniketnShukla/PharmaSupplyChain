@@ -1,0 +1,26 @@
+Raw materials can also be added only if we're logged into the owner's account :(
+
+If we take the route of replicating it on the same website we should start from the Transfer medicine function on the side bar within in the wholesaler role
+
+To check database connection from the website
+
+keyword : getSupplyChainStepContent
+
+Remove customer entitiy from status bar, send package
+
+Where the data is going
+See if we can get the data to our website or our database
+
+
+File to veevee serviceAccountKey.json
+
+ToDo Application
+1. Making the express application
+	i. Displaying info where required
+	ii. Creating individual customers info
+		auth0 cred_id-> user info
+	iii. Transfering the data to a database and connecting it the app
+2. Working on Firebase
+3. Removing the customer from the dApp
+
+
