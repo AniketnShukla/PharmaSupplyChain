@@ -12,6 +12,7 @@ export const Navbar = () => {
       <div className="links">
         <Link to="/home">Home</Link>
         <Link to="/shop"> Shop </Link>
+        <Link to="/myorders"> MyOrders </Link>
         <Link to="/cart">
           <ShoppingCart size={32} />
         </Link>
@@ -30,3 +31,4 @@ export const Navbar = () => {
     </div>
   );
 };
+
