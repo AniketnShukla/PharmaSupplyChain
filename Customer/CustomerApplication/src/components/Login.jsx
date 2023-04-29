@@ -35,26 +35,46 @@ const Login = () => {
     })
     }
   return (
-    <div className="start">
-    <div className="startTitle">
-      <h1>PharmaBlocks</h1>
-    </div>
-    <form onSubmit={handleSubmit} >
-    <h2>Log in</h2>
-    <label htmlFor="name">Username:</label>
-    <input type="text" id="name" name="username" value={formData.username} onChange={handleChange}/>
+   <div class="bg-img">
+      <div class="content">
+        <img src={logo} class="logo" />
+        <br />
+        <header>Login</header>
+        <form onSubmit={handleSubmit}>
+          <div class="field">
+            <span class="fa fa-user"></span>
+            <input
+              type="text"
+              id="name"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Full Name"
+            />
+          </div>
+          <div class="field space">
+            <span class="fa fa-lock"></span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+          </div>
 
-    {/* <label htmlFor="email">Email:</label>
-    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/> */}
-
-    <label htmlFor="password">Password:</label>
-    <input type="password" id="password" name="password" value={formData.password} onChange={handleChange}/>
-
-    <button type="submit">Submit</button>
-    </form>
-    <br />
-    <a href="/signup">Don't Have an account?, Sign Up!</a>
-  </div>  )
+          <br />
+          <div class="field1">
+            <input type="submit" value="Submit" />
+          </div>
+          <br />
+          <div class="signup">
+            Don't have an account? <a href="/signup">Signup now</a>
+          </div>
+        </form>
+      </div>
+    </div> )
 }
 
 export default Login
