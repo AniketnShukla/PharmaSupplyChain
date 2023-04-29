@@ -13,13 +13,14 @@ const getMaterialInfo = asyncHandler(async(req, res) => {
     const materialInfo = await RawMaterial.find({
         'rawMaterialAddress': rawMaterialAddress,
     })      // console.log(meds)
-    const material = materialInfo[0];
-    if(!material) {
+    if(!materialInfo) {
         return res.status(400).json({
             message: 'No medicine found'
         })
     }
-    res.json(material)
+    const material = materialInfo[0];
+    res.json({material: material, status: 'ok' })
+
 })
 
 //@desc Create new users
