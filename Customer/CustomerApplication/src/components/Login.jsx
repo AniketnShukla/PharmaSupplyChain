@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./../pages/start/start.css";
-import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios"
+import "../components/Login.css";
+import axios from "axios";
+import logo from "../assets/logo.png";
+
 
 const Login = () => {
     // const { loginWithRedirect } = useAuth0();
