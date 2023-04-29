@@ -16,6 +16,7 @@ export const CartItem = (props) => {
       'medicineAddress': props.data.medicineAddress,
       'quantity': quantity 
     }
+    if(quantity >0){
     props.setToBuyMEDS((prev) => {
       console.log(prev)
       console.log(props.data.medicineAddress)
@@ -26,22 +27,23 @@ export const CartItem = (props) => {
           // console.log(foundObj)
       //   console.log(tempArray)
           foundObj.quantity = quantity;
-          tempArray.push(foundObj);
-          return tempArray;
+            tempArray.push(foundObj);
+            return tempArray;
+          }
+          else{
+            //   console.log(typeof prev)
+            // if(typeof prev === Object)
+            prev.push(buyMedObj)
+          }
+          // let ar = prev;
+          // let array
+          // if (typeof ar == Object)
+          // array = ar.push(buyMedObj); 
+          // return array;
+          return prev
+        })
       }
-      else{
-          //   console.log(typeof prev)
-          // if(typeof prev === Object)
-          prev.push(buyMedObj)
-      }
-      // let ar = prev;
-      // let array
-      // if (typeof ar == Object)
-      // array = ar.push(buyMedObj); 
-      // return array;
-      return prev
-    })
-  },[quantity])
+      },[quantity])
 
   // console.log(props)
   return (

@@ -21,6 +21,13 @@ const MyOrders = () => {
             catch(e){
                 console.log(e)
             }
+            // try{
+            //     const response = await axios.post(`http://localhost:3500/customer/get-all-orders/`, {'username': currentUser})
+            //     setMedicineIDs(response.data)
+            // }
+            // catch(e){
+            //     console.log(e)
+            // }
         }
         getOrderIDs();        
     },[]);
@@ -57,7 +64,7 @@ const MyOrders = () => {
     // <h2>Loading . . . </h2>
     <h2>No Orders yet.</h2>
     ) : (    
-    <OrderTable data={medicineInfo} />
+    <OrderTable medicineInfo={medicineInfo} medicineIDs={medicineIDs}/>
     )}
     </div>
   )

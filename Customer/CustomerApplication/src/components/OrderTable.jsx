@@ -17,17 +17,22 @@ function OrderTable(props) {
   useEffect(() => {
     // console.log(props.data)
     let tableDataArray = []
-    props.data?.map((obj) => {
+    let quant;
+    props.medicineInfo?.map((obj) => {
       const tableObj = {}
       for(let item in obj){
         // console.log(typeof obj[item] + ' ' + obj[item])
         // if(typeof obj[item] != 'object'){
-          // if(['timeAdded', 'description', 'price', 'quantity'].find((x)=> x === item)){
-          if(['timeAdded', 'description', 'price', 'medicineAddress'].find((x)=> x === item)){
-          // console.log(item)
-          tableObj[item] = obj[item]
-        }
-      }
+          if(['timeAdded', 'description', 'price', 'quantity', 'medicineAddress'].find((x)=> x === item)){
+            // if(['timeAdded', 'description', 'price', 'medicineAddress'].find((x)=> x === item)){
+              // console.log(item)
+              tableObj[item] = obj[item]
+            }
+          }
+          //for number of the particular medicines ordered, got from the data fetched from customer in MyOrders , and passed to this component using props 
+      const orderObj = props.medicineIDs.find((x)=> x.medicineAddress === obj.medicineAddress)
+      tableObj['quantity'] = orderObj.quantity
+      console.log(tableObj)
       tableDataArray.push(tableObj)
       // console.log(tableDataArray)
       setState(tableDataArray)
@@ -60,7 +65,7 @@ function OrderTable(props) {
         <th scope="col">Medicine Address</th>
         <th scope="col">Medicine Name</th>
         <th scope="col">Price</th>
-        {/* <th scope="col">Quantity</th> */}
+        <th scope="col">Quantity</th>
         <th scope="col">Date of Order</th>
         <th scope="col">Click to Trace</th>
       </tr>
