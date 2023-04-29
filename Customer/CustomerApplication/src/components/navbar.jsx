@@ -9,62 +9,33 @@ export const Navbar = () => {
   const user = sessionStorage.getItem('username')
   return (
     <div className="navbar">
-      <h3>Welcome {user}</h3>
-      <div className="links">
-        <Link to="/home">Home</Link>
-        <Link to="/shop"> Shop </Link>
-        <Link to="/cart">
-          <ShoppingCart size={32} />
-        </Link>
-        <Link to="/myorders"> My Orders </Link>
-        <Link>
-          <button
-            className="navButton"
+      <img src={logo} class="logo" />
+      <ul>
+        <li>
+          <a href="/home">Home</a>
+        </li>
+        <li>
+          <a href="/shop">Shop</a>
+        </li>
+        <li>
+          <a href="/myorders">MyOrders</a>
+        </li>
+        <li>
+          <a href="/cart">CART</a>
+        </li>
+        <li>
+          <a
+            href="/"
             onClick={() => {
-              // logout({ logoutParams: { returnTo: window.location.origin } })
-              sessionStorage.removeItem('username');
-              window.location.href = '/';
+              sessionStorage.removeItem("username");
+              window.location.href = "/";
             }}
           >
-            LogOut
-          </button>
-        </Link>
-        ;
-      </div>
+            Logout
+          </a>
+        </li>
+      </ul>
+      <h3>Welcome {user}</h3>
     </div>
   );
 };
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import { ShoppingCart } from "phosphor-react";
-// import "./navbar.css";
-// import { useAuth0 } from "@auth0/auth0-react";
-
-// export const Navbar = () => {
-//   const { logout } = useAuth0();
-
-//   return (
-//     <div className="navbar">
-//       <div className="links">
-//         <Link to="/home">Home</Link>
-//         <Link to="/shop"> Shop </Link>
-//         <Link to="/myorders"> MyOrders </Link>
-//         <Link to="/cart">
-//           <ShoppingCart size={32} />
-//         </Link>
-//         <Link>
-//           <button
-//             className="navButton"
-//             onClick={() =>
-//               logout({ logoutParams: { returnTo: window.location.origin } })
-//             }
-//           >
-//             LogOut
-//           </button>
-//         </Link>
-//         ;
-//       </div>
-//     </div>
-//   );
-// };
