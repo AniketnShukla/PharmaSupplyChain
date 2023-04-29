@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./start.css";
-import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios"
+import axios from "axios";
 import Login from "../../components/Login";
+import logo from "../../assets/logo.png";
 
 export const Start = () => {
   const { loginWithRedirect } = useAuth0();
@@ -27,19 +27,19 @@ export const Start = () => {
 
   return (
     <div className="start">
-      <div className="startTitle">
-        <h1>PharmaBlocks</h1>
-      </div>
-
-    <br />
-    <a href="/login">Login</a>
-    <br />
-    <a href="/Signup">Signup</a>
-
-      <div className="startButton">
-        <button className="navButton" onClick={() => loginWithRedirect()}>
-          LogIn
-        </button>
+      <img src={logo} class="logo" />
+      <p>Meds made easy.</p>
+      <div className="Button">
+        <a href="/login">
+          <button type="button">
+            <span></span>LOGIN
+          </button>
+        </a>
+        <a href="/Signup">
+          <button type="button">
+            <span></span>SIGNUP
+          </button>
+        </a>
       </div>
     </div>
   );
