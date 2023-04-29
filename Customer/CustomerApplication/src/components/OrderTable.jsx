@@ -15,7 +15,7 @@ function OrderTable(props) {
 
 
   useEffect(() => {
-    console.log(props.data)
+    // console.log(props.data)
     let tableDataArray = []
     props.data?.map((obj) => {
       const tableObj = {}
@@ -24,12 +24,12 @@ function OrderTable(props) {
         // if(typeof obj[item] != 'object'){
           // if(['timeAdded', 'description', 'price', 'quantity'].find((x)=> x === item)){
           if(['timeAdded', 'description', 'price', 'medicineAddress'].find((x)=> x === item)){
-          console.log(item)
+          // console.log(item)
           tableObj[item] = obj[item]
         }
       }
       tableDataArray.push(tableObj)
-      console.log(tableDataArray)
+      // console.log(tableDataArray)
       setState(tableDataArray)
     })
   },[])

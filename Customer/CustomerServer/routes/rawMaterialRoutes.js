@@ -3,9 +3,12 @@ const path = require('path')
 const router = express.Router()
 const rawMaterialController = require('../controllers/rawMaterialController')
 router.route('/')
-// .get(rawMaterialController.getMeds)
 .post(rawMaterialController.addNewRawMaterial)
+// .get(rawMaterialController.getMeds)
 // .patch(usersController.updateUser)
 // .delete(usersController.deleteUser)
+
+router.route('/get-raw-material')
+.post(rawMaterialController.getMaterialInfo)
 
 module.exports = router

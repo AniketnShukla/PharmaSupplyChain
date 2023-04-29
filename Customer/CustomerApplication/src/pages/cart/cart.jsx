@@ -9,9 +9,11 @@ import { useState, useEffect } from "react";
 import axios from 'axios'
 
 export const Cart = () => { 
-  const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
   const [MEDS, setMEDS] = useState([])
   const [orderedMEDS, setorederedMEDS] = useState([])
+  const [toBuyMEDS, setToBuyMEDS] = useState([{}])
+  // console.log(typeof toBuyMEDS)
+
   const [totalAmount, setTotalAmount] = useState(0)
 
   // const totalAmount = getTotalCartAmount();
@@ -60,6 +62,8 @@ export const Cart = () => {
                         key={med._id}
                         totalAmount = {totalAmount}
                         setTotalAmount = {setTotalAmount}
+                        toBuyMEDS = {toBuyMEDS}
+                        setToBuyMEDS = {setToBuyMEDS}
                         />;
             // }
           })}
@@ -81,12 +85,25 @@ export const Cart = () => {
 
                 axios.post(`http://localhost:3500/customer/buy`, {
                     "username": currentUser,
-                    "orderedMeds": orderedMEDS,
+                    "toBuyMeds": toBuyMEDS
                     // "quantity": quantity
                 }).then((res) => {
-                  alert(res.status)
+                  // alert(res.status)
                 }).catch(e => {
                   console.log(e);
+                })
+
+                toBuyMEDS.map((item)=>{
+                  return (
+                  axios.post(`http://localhost:3500/meds/buy`, {
+                    "cartObj": item
+                    // "quantity": quantity
+                  }).then((res) => {
+                    // alert(res.status)
+                  }).catch(e => {
+                    console.log(e);
+                  })
+                  )
                 })
                 
                 alert('Order Placed, Pay ' + totalAmount )

@@ -3,6 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const asyncHandler = require('express-async-handler')
 const Customer = require('../models/Customer')
+const Med = require('../models/Med')
 const jwt = require('jsonwebtoken')  
 
 //@desc Get all users
@@ -107,7 +108,8 @@ const createNewUser = asyncHandler(async(req, res) => {
 //@route Patch /users
 //@access Private
 const placeOrder = asyncHandler(async(req, res) => {
-    const { username, orderedMeds, quantity } = req.body
+    // const { username, toBuyMeds, quantity } = req.body
+    const { username, toBuyMeds } = req.body
     //COnfirm data
     // if( !username || !medicineAddress ){
     //     res.status(400).json({message: `All fields are required`})  
@@ -116,24 +118,49 @@ const placeOrder = asyncHandler(async(req, res) => {
     const user = await Customer.find({
         'username': username
     })
+    // let medAddrArray = []
+    // for(let item in toBuyMeds){
+    //     medAddrArray.push(item.medicineAddress);
+    // }
+    // console.log('aaaaaaaaaaaaasassasaaaaaaaaaaaaaaaaa')
+    // console.log(toBuyMeds)
+    // toBuyMeds.map(async (item)=>{
+    //     if(item){
+    //         try{
+    //             const med = await Med.findOne({
+    //                 'medicineAddress': item.medicineAddress
+    //             })
+    //             console.log(item)
+    //             // console.log(med)
+    //             med[quantity] = med[quantity] - item[quantity]
+    //             const updateMed = await med.save()
+    //             console.log(updateMed)
+    //     }
+    //     catch(e){
+    //         console.log(e);
+    //     }
+    //     }
+    // })
+
     console.log('User Email: ' + user[0].email)
     if(!user) {
-        return res.status(400).json({message: `User not found`})
         console.log('User Not Found')
+        return res.status(400).json({message: `User not found`})
     }
     //Update the user order information
     userOrders = user[0].ordersPlaced
     const orderArray = [];
-    orderedMeds.map((med) => {
+    toBuyMeds.map((med) => {
         const orderObject = {
         'medicineAddress': med.medicineAddress,
+        'quantity': med.quantity
         }
         orderArray.push(orderObject);
     })
     // console.log('Earliest Order Product ID: ' + user[0].ordersPlaced[0].medicineAddress)
     userOrders.push.apply(userOrders, orderArray)
     user[0].ordersPlaced = userOrders
-    console.log(userOrders)
+    // console.log(userOrders)
     const updatedUser = await user[0].save()
     
     res.json({status: 'ok', message: `${updatedUser.username} updated`})

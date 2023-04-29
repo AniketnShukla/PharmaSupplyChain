@@ -82,10 +82,50 @@ const addNewMed = asyncHandler(async(req, res) => {
     }
 })
 
+const updateMeds = asyncHandler(async(req, res) => {
+    const { cartObj } = req.body
+
+    // let medAddrArray = []
+    // for(let item in toBuyMeds){
+    //     medAddrArray.push(item.medicineAddress);
+    // }
+    console.log('aaaaaaaaaaaaasassasaaaaaaaaaaaaaaaaa')
+    console.log(cartObj)
+    // toBuyMeds.map(async (item)=>{
+    //     if(item){
+    //         try{
+                const med = await Med.findOne({
+                    // 'medicineAddress': item.medicineAddress
+                    'medicineAddress': cartObj.medicineAddress
+                })
+                if(!med) {
+                    console.log('User Not Found')
+                    return res.status(400).json({message: `User not found`})
+                }
+                // console.log(item)
+                // console.log(med)
+                med.quantity = med.quantity - cartObj.quantity
+                const updatedMed = await med.save()
+                // console.log(updatedMed)
+                res.json({status: 'ok', message: `${updatedMed.description} updated`})
+
+        // }
+        // catch(e){
+            // console.log(e);
+        // }
+        // }
+    // })
+
+    
+    res.json({status: 'ok', message: `${updatedMed.username} updated`})
+})
+
+
 module.exports = {
     getMeds,
     getMedInfo,
     addNewMed,
+    updateMeds,
     // updateUser,
     // deleteUser
 }
