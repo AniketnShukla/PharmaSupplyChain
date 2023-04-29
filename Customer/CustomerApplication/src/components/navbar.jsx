@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 import "./navbar.css";
-import { useAuth0 } from "@auth0/auth0-react";
+import logo from "../assets/logo.png";
 
 export const Navbar = () => {
   const { logout } = useAuth0();
