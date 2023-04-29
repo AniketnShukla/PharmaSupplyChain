@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./../pages/start/start.css";
+import "./Login.css";
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios"
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
+
 
 const Signup = () => {
   const navigate = useNavigate()
