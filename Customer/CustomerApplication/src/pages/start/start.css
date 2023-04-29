@@ -1,14 +1,124 @@
-.startTitle {
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+.start {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/Bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #000000;
+}
+
+/* .startTitle {
   margin-top: 0px;
   margin-left: 800px;
 
   font-size: xx-large;
   color: rgb(22, 77, 77);
+} */
+
+.start h1 {
+  font-size: 70px;
+}
+.start p {
+  margin: 20px auto;
+  font-weight: 100;
+  line-height: 25px;
+}
+.start img {
+  background: transparent;
+  height: 17vh;
+  margin-top: 10%;
 }
 
-.startButton {
-  margin: 0px;
+.Button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
 }
-.navButton {
-  background-color: black;
+
+.Button button {
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  font-weight: bold;
+  border: 2px solid rgb(23, 62, 169);
+  border-radius: 26px;
+  background: transparent;
+  color: rgb(12, 24, 56);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.Button button:hover {
+  background-color: rgb(179, 211, 239);
+  border: 2px solid rgb(23, 62, 169);
+}
+
+/* span {
+  background: rgba(137, 212, 253, 0.4);
+  border: 2px solid rgb(23, 62, 169);
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+} */
+
+button:hover span {
+  width: 100%;
+}
+
+button:hover {
+  border: none;
+}
+
+.start p {
+  background-color: transparent;
+  color: rgb(23, 62, 169);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 25px;
+}
+.login {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/Bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #000000;
+}
+
+.login h2 {
+  margin: 20px auto;
+  font-weight: 300;
+  /* line-height: 20px; */
+}
+.login img {
+  background: transparent;
+  height: 17vh;
+  margin-top: 100px;
+}
+
+.login form {
+  margin: auto;
+  width: 50vh;
+}
+
+.forminput {
+  border-radius: 4px;
+  width: fit-content;
+  height: 4vh;
 }
