@@ -31,31 +31,72 @@ const Signup = () => {
   }
 
   return (
-    <div className="start">
-      <div className="startTitle">
-        <h1>PharmaBlocks</h1>
+<div class="bg-img">
+      <div class="content">
+        <img src={logo} class="logo" />
+        <br />
+        <header>Signup </header>
+        <form onSubmit={handleSubmit}>
+          <div class="field">
+            <span class="fa fa-user"></span>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Full Name"
+            />
+          </div>
+          <div class="field space">
+            <span class="fa fa-envelope"></span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+            />
+          </div>
+          <div class="field space">
+            <span class="fa fa-lock"></span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.p}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+            <span class="show">SHOW</span>
+          </div>
+          <div class="field space">
+            <span class="fa fa-location-dot"></span>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              placeholder="Address"
+            />
+          </div>
+
+          <br />
+          <div class="field1">
+            <input
+              type="submit"
+              onClick={(window.location.href = "/login")}
+              value="Submit"
+            />
+          </div>
+          <br />
+          <div class="signup">
+            Have an account? <a href="/Login">Login</a>!
+          </div>
+        </form>
       </div>
-      <form onSubmit={handleSubmit} >
-      <h2>Sign up</h2>
-      <label htmlFor="name">Name:</label>
-      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
-
-      <label htmlFor="email">Email:</label>
-      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
-
-      <label htmlFor="password">Password:</label>
-      <input type="password" id="password" name="password" value={formData.p} onChange={handleChange}/>
-
-      <label htmlFor="address">Address:</label>
-      <textarea id="address" name="address" value={formData.address} onChange={handleChange}/>
-
-      <button type="submit" onClick={() => {
-        window.location.href = '/login'
-      }}>Submit</button>
-      </form>
-      <br />
-      <a href="/login">Have an account?, Log in!</a>
-
     </div>
   )
 }
