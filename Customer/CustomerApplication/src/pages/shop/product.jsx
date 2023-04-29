@@ -22,12 +22,11 @@ export const Product = (props) => {
     <div className="product">
       {/* <img src={productImage} /> */}
       <div className="description">
-        <p>
+        <p className="title">
           <b>{description}</b>
         </p>
-        <p> ${price}</p>
-        <p> Nos: {quantity}</p>
-      
+        <p> Price: ${price}</p>
+        <p> Quantity: {quantity}</p>
       </div>
       <button className="addToCartBttn" onClick={() => {
         // addToCart(medicineAddress)
@@ -47,7 +46,7 @@ export const Product = (props) => {
 
                           {/* Temporary button to attach to database function */}
                           {/* //Wont work due to change in data being sent */}
-                          <br />
+                 
                         {/* <button className="addToCartBttn" onClick={() => {
                           
                           //This should be replaced with the current logged in customer
@@ -67,7 +66,7 @@ export const Product = (props) => {
                           Buy {cartItemCount > 0 && <> ({cartItemCount})</>}
                         </button> */}
         {/* Temporary button to attach to database function */}
-        <br />
+      
 
       
     </div>
